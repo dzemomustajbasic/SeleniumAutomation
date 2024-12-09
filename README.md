@@ -1,0 +1,1 @@
+A simple Flask web application designed for automating interactions with the Klix.ba website. The application integrates the Google Sheets API, allowing users to add articles and comments, which the bot automatically searches for on the portal, posts comments, and performs likes or dislikes.
