@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <form action="{{ url_for('logout') }}" style="float: right;">
+            <button type="submit">Logout</button>
+        </form>
+    </header>
+
+    <form action="{{ url_for('manual_check') }}" method="post">
+        <button type="submit">Start manually</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Platforma</th>
+                <th>Link</th>
+                <th>Komentar na koji treba odgovoriti</th>
+                <th>Moj komentar</th>
+                <th>Komentarisano</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zapis in zapisi %}
+            <tr>
+                <td>{{ zapis.platforma }}</td>
+                <td><a href="{{ zapis.link }}">{{ zapis.link }}</a></td>
+                <td>{{ zapis.komentar_na_koji_odgovaramo }}</td>
+                <td>{{ zapis.komentar }}</td>
+                <td>{{ zapis.komentarisano }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
